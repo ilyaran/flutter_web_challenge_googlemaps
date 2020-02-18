@@ -51,40 +51,77 @@ class ExploreWidget extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(realW(80 + (50 - 80) * currentExplorePercent)),
                       topRight: Radius.circular(realW(80 + (50 - 80) * currentExplorePercent)))),
-              child: Stack(
-                children: [
-                  Positioned(
-                      top: realH(65 + (-5 * currentExplorePercent)),
-                      left: realW(49 + (91 - 49) * currentExplorePercent),
-                      child: Text(
-                        "Explore",
-                        style: TextStyle(color: Colors.white, fontSize: realW(18 + (32 - 18) * currentExplorePercent)),
-                      )),
-                  Positioned(
-                      top: realH(20 + (60 - 20) * currentExplorePercent),
-                      left: realW(63 + (44 - 63) * currentExplorePercent),
-                      child: Icon(
+              child: Column(
+                  children: <Widget>[
+                    GestureDetector(
+                      onTap: () {
+                        animateExplore(false);
+                      },
+                      child: Image.asset(
+                        "assets/map/arrow.png",
+                        width: realH(35),
+                        height: realH(35),
+                      ),
+                    ),
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                      Icon(
                         Icons.location_on,
                         size: realW(34),
                         color: Colors.white,
-                      )),
-                  Positioned(
-                      top: realH(currentExplorePercent < 0.9
-                          ? realH(-35)
-                          : realH(-35 + (6 + 35) * (currentExplorePercent - 0.9) * 8)),
-                      left: realW(63 + (170 - 63) * currentExplorePercent),
-                      child: GestureDetector(
-                        onTap: () {
-                          animateExplore(false);
-                        },
-                        child: Image.asset(
-                          "arrow.png",
-                          width: realH(35),
-                          height: realH(35),
-                        ),
-                      )),
-                ],
-              ),
+                      ),
+                      Text(
+                        "Explore",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize:
+                                realW(18 + (32 - 18) * currentExplorePercent)),
+                      )
+
+                    ],)
+
+
+
+                  ],
+                )
+              
+              
+//               Stack(
+//                 children: [
+//                   Positioned(
+//                       top: realH(65 + (-5 * currentExplorePercent)),
+//                       left: realW(49 + (91 - 49) * currentExplorePercent),
+//                       child: Text(
+//                         "Explore",
+//                         style: TextStyle(color: Colors.white, fontSize: realW(18 + (32 - 18) * currentExplorePercent)),
+//                       )),
+//                   Positioned(
+//                       top: realH(20 + (60 - 20) * currentExplorePercent),
+//                       left: realW(63 + (44 - 63) * currentExplorePercent),
+//                       child: Icon(
+//                         Icons.location_on,
+//                         size: realW(34),
+//                         color: Colors.white,
+//                       )),
+//                   Positioned(
+//                       top: realH(currentExplorePercent < 0.9
+//                           ? realH(-35)
+//                           : realH(-35 + (6 + 35) * (currentExplorePercent - 0.9) * 8)),
+//                       left: realW(63 + (170 - 63) * currentExplorePercent),
+//                       child: GestureDetector(
+//                         onTap: () {
+//                           animateExplore(false);
+//                         },
+//                         child: Image.asset(
+//                           "arrow.png",
+//                           width: realH(35),
+//                           height: realH(35),
+//                         ),
+//                       )),
+//                 ],
+//               ),
             ),
           ),
         ));
